@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oregano:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>To-do List</title>
+</head>
+
+<body>
+
+    <div class="content-wrapper">
+        <a class="btn-toggle-mode" href="#" onclick="toggleDarkMode()">
+            <img class="dark-btn" src="./assets/darkbtn.png" alt="darkmode-btn" /></a>
+        <h1 class="title"> My To-Do List ✓ </h1>
+
+        <div class="small-containers">
+            <div class="small-container1">
+                <p> Easy to Use </p>
+            </div>
+            <div class="small-container2">
+                <p> Boost Productivity</p>
+            </div>
+            <div class="small-container3">
+                <p> Increased Efficiency</p>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <input class="main-input" placeholder="What do you need to do?">
+            <button class="btn"> Add </button>
+            <ul class="list-tasks">
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <h1>
+            Copyright &copy; 2024 - Desenvolvido por
+            <a href="https://www.linkedin.com/in/thiane-wosniak" target="_blank">Thiane Wosniak</a>
+        </h1>
+
+        <h2>
+            Contato:
+            <a href="https://www.linkedin.com/in/thiane-wosniak" target="_blank" title="LinkedIn"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.github.com/thianece" target="_blank" title="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://wa.link/ej4rzv" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </h2>
+    </footer>
+
+</body>
+<script src="./script.js"> </script>
+
+</html>
