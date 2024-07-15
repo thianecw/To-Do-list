@@ -53,12 +53,21 @@ function showTasks() { /*show all tasks -> screen*/
 
 function editTask (index) {
     const taskElement = fullList.children[index];
+    taskElement.style.textDecoration = 'none'; //tirar o subscrito no campo de edição//
     const taskEditing = myTasks[index].taskinfo;
+
+    function editTask (index) {
+        const taskElement = fullList.children[index];
+        taskElement.classList.remove('completed'); // Assumindo que 'completed' aplica o subscrito
+        const taskEditing = myTasks[index].taskinfo;
+        
+        // Resto do código...
+    }
     
     taskElement.innerHTML = `
-        <input type="text" class="edit-input" value="${taskEditing}">
-        <button class="edit-save-btn" onclick="saveEdit(${index})">Save</button>
-    `;
+    <input type="text" class="edit-input" value="${taskEditing}">
+    <button class="edit-save-btn" onclick="saveEdit(${index})">Save</button>
+`;
 
     const editInput = taskElement.querySelector('.edit-input');
     editInput.focus();
@@ -103,6 +112,14 @@ if (tasksLocalStorage) {
 
 showTasks()
 }
+
+function clearAllTasks ( ) { //retirar as tasks da tela quando clica no botão//
+myTasks = []
+localStorage.removeItem ('mytaskslist'); // Remove do localStorage
+
+showTasks()
+}
+
 
 async function toggleDarkMode() {
     const body = document.body;

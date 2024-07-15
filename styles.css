@@ -16,8 +16,8 @@
     --error-text: #cc0000;
     --bg-dark-mode: #191919;
     --dark-mode: #363636;
+    --btn-dark-mode: #483078;
 }
-
 
 body {
     min-height: 100vh;
@@ -42,14 +42,21 @@ body {
 .btn-toggle-mode {
     position: fixed;
     top: 10px;
-    right: 10px; 
+    right: 10px;
     z-index: 1000;
     cursor: pointer;
 }
 
 .dark-btn {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+}
+
+.dark-btn:hover {
+    width: 40px;
+    height: 40px;
+    transition: 0.3s ease-in-out;
 }
 
 .title {
@@ -66,18 +73,19 @@ body {
     font-style: bold;
     font-weight: 400;
     font-size: 15px;
-    }
+}
 
 .small-container1 {
     background-color: var(--bg-box);
-    border-radius:8%;
+    border-radius: 8px;
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.6);
     padding: 10px;
- }
+}
 
-.small-container2, .small-container3 {
+.small-container2,
+.small-container3 {
     background-color: var(--bg-box);
-    border-radius:8%;
+    border-radius: 8px;
     margin-left: 25px;
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.6);
     padding: 10px;
@@ -151,6 +159,26 @@ body {
     word-break: break-all;
 }
 
+.btnClearAllTasks {
+    background-color: var(--btn);
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-items: end;
+    padding: 5px;
+}
+
+.btnClearAllTasks:hover {
+    opacity: 0.8;
+}
+
+.btnClearAllTasks:active {
+    opacity: 0.5;
+}
+
 .tasks:hover img {
     opacity: 1;
 }
@@ -196,7 +224,6 @@ img {
     height: 40px;
     font-size: 17px;
     transition: border-color 0.3s ease;
-    text-transform: none;
 }
 
 .edit-save-btn {
@@ -300,7 +327,9 @@ body.dark-mode .main-container {
     color: #eeeeee;
 }
 
-body.dark-mode .small-container1, body.dark-mode .small-container2, body.dark-mode .small-container3 {
+body.dark-mode .small-container1,
+body.dark-mode .small-container2,
+body.dark-mode .small-container3 {
     background-color: var(--dark-mode);
     color: #eeeeee;
 }
@@ -316,17 +345,22 @@ body.dark-mode .tasks {
 }
 
 body.dark-mode .btn {
-    background-color: #30304a;
+    background-color: var(--btn-dark-mode);
+    color: #a7a6a6;
+}
+
+body.dark-mode .btnClearAllTasks {
+    background-color: var(--btn-dark-mode);
     color: #a7a6a6;
 }
 
 body.dark-mode .edit-save-btn {
-    background-color: #4D4D73;
+    background-color: var(--btn-dark-mode);
     color: #a7a6a6;
 }
 
 body.dark-mode .error-message {
-    background-color: #4D4D73;
+    background-color: #333385;
     color: #a7a6a6;
 }
 
@@ -335,7 +369,7 @@ body.dark-mode .main-input.error {
 }
 
 body.dark-mode .done {
-    background-color: #4D4D73;
+    background-color: #5838A0;
 }
 
 body.dark-mode .edit-input {
@@ -345,7 +379,7 @@ body.dark-mode .edit-input {
 
 body.dark-mode .edit-save-btn {
     background-color: #4D4D73;
-    }
+}
 
 body.dark-mode .edit-save-btn:hover {
     opacity: 0.8;
@@ -355,22 +389,65 @@ body.dark-mode .edit-save-btn:active {
     opacity: 0.5;
 }
 
-body.dark-mode .img-done:hover {
+body.dark-mode .img-done {
+    filter: invert(100%);
+}
+
+body.dark-mode .img-edit {
+    filter: invert(100%);
+}
+
+body.dark-mode .img-delete {
+    filter: invert(100%);
+}
+
+body.dark-mode .dark-btn {
     filter: invert(90%);
 }
 
-body.dark-mode .img-edit:hover {
-    filter: invert(90%);
+body.dark-mode .dark-btn:hover {
+    width: 40px;
+    height: 40px;
+    transition: 0.3s ease-in-out;
 }
 
-body.dark-mode .img-delete:hover {
-    filter: invert(90%);
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 500px) {
+
+    .title {
+        font-size: 40px;
+    }
+
+    .small-container1 p {
+        font-size: 12px
+    }
+
+    .small-container2 p {
+        font-size: 12px
+    }
+
+    .small-container3 p {
+        font-size: 12px
+    }
+
+.main-container {
+    padding: 10px;
+    width: 380px;
 }
 
-/* Media Queries for Mobile Responsiveness
-@media (max-width: 768px) {
+.btn {
+    font-size: 13px;
 }
 
-@media (max-width: 480px) {
+.btnClearAllTasks {
+    font-size: 13px;
+}
 
-    } */
+.main-input {
+    font-size: 15px;
+}
+
+.edit-input {
+font-size: 15px;
+}
+}
