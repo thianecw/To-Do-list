@@ -17,6 +17,7 @@
     --bg-dark-mode: #191919;
     --dark-mode: #363636;
     --btn-dark-mode: #483078;
+    --main-color-dark: #a7a6a6;
 }
 
 body {
@@ -37,26 +38,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.btn-toggle-mode {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1000;
-    cursor: pointer;
-}
-
-.dark-btn {
-    width: 30px;
-    height: 30px;
-    opacity: 1;
-}
-
-.dark-btn:hover {
-    width: 40px;
-    height: 40px;
-    transition: 0.3s ease-in-out;
 }
 
 .title {
@@ -315,6 +296,78 @@ footer a:active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.toggle-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Certifique-se de que o botão fique acima de outros elementos */
+}
+
+.toggle-switch {
+    position: relative;
+    display: flex;
+    justify-content: right;
+    width: 100px;
+    height: 50px;
+    --light: #d8dbe0;
+    --dark: #28292c;
+    --link: rgb(27, 129, 112);
+    --link-hover: rgb(24, 94, 82);
+      }
+  
+  .switch-label {
+    position: absolute;
+    width: 70%;
+    height: 35px;
+    background-color: var(--dark);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+  }
+  
+  .checkbox {
+    position: absolute;
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  .checkbox:checked ~ .slider {
+    background-color: var(--light);
+  }
+  
+  .slider::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+    box-shadow: inset 12px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  .checkbox:checked ~ .slider::before {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+    background-color: var(--dark);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+
 /* DARK MODE */
 
 body.dark-mode {
@@ -335,33 +388,33 @@ body.dark-mode .small-container3 {
 }
 
 body.dark-mode .main-input {
-    color: #a7a6a6;
+    color: var(--main-color-dark);
     background-color: var(--dark-mode);
 }
 
 body.dark-mode .tasks {
-    color: #a7a6a6;
+    color: var(--main-color-dark);
     background-color: var(--dark-mode);
 }
 
 body.dark-mode .btn {
     background-color: var(--btn-dark-mode);
-    color: #a7a6a6;
+    color: var(--main-color-dark);
 }
 
 body.dark-mode .btnClearAllTasks {
     background-color: var(--btn-dark-mode);
-    color: #a7a6a6;
+    color: var(--main-color-dark);
 }
 
 body.dark-mode .edit-save-btn {
     background-color: var(--btn-dark-mode);
-    color: #a7a6a6;
+    color: var(--main-color-dark);
 }
 
 body.dark-mode .error-message {
     background-color: #333385;
-    color: #a7a6a6;
+    color: var(--main-color-dark);
 }
 
 body.dark-mode .main-input.error {
@@ -373,7 +426,7 @@ body.dark-mode .done {
 }
 
 body.dark-mode .edit-input {
-    color: #a7a6a6;
+    color: var(--main-color-dark);
     background-color: var(--dark-mode);
 }
 
@@ -401,18 +454,12 @@ body.dark-mode .img-delete {
     filter: invert(100%);
 }
 
-body.dark-mode .dark-btn {
-    filter: invert(90%);
-}
-
-body.dark-mode .dark-btn:hover {
-    width: 40px;
-    height: 40px;
-    transition: 0.3s ease-in-out;
-}
-
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 500px) {
+
+.content-wrapper {
+    margin-top: 60px;
+}
 
     .title {
         font-size: 40px;
@@ -450,4 +497,36 @@ body.dark-mode .dark-btn:hover {
 .edit-input {
 font-size: 15px;
 }
+
+.toggle-switch {
+    position: relative;
+    display: flex;
+    justify-content: right;
+    width: 100px;
+    height: 50px;
+      }
+  
+  .switch-label {
+    width: 65%;
+    height: 35px;
+  }
+    
+  .slider::before {
+    left: 3px;
+    top: 1px;
+    width: 27px;
+    height: 27px;
+   }
+  
+  .checkbox:checked ~ .slider::before {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+    background-color: var(--dark);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+
+
 }
